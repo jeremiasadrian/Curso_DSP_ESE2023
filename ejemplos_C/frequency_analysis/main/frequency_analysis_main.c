@@ -165,4 +165,16 @@ void app_main(void){
     dsps_view(fft, N_POW2/2, PLOT_WIDTH, PLOT_HEIGHT, 0, fft_max, '*');
     ESP_LOGI("Plot", "Fs: %dHz", SAMPLE_FREQ);
 
+
+    /*Sección de códig para detección de armonicos.*/
+    uint16_t n_harmonics = 6;
+    float harmonics[n_harmonics];
+    uint16_t h_pos[n_harmonics];
+    uint16_t harmonics_detected = 0;
+    harmonics_detected = find_peaks(fft, N_POW2/2, fft_max/50, n_harmonics, harmonics, h_pos);
+
+    for(uint16_t i=0; i<harmonics_detected; i++)
+    {
+        ESP_LOGI(TAG, "F%d: %fHz", i, (float)h_pos[i]*SAMPLE_FREQ/N_POW2);
+    }
 }
