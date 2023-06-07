@@ -167,7 +167,7 @@ void app_main(void){
 
 
     /*Sección de códig para detección de armonicos.*/
-    uint16_t n_harmonics = 6;
+    /*uint16_t n_harmonics = 6;
     float harmonics[n_harmonics];
     uint16_t h_pos[n_harmonics];
     uint16_t harmonics_detected = 0;
@@ -176,5 +176,5 @@ void app_main(void){
     for(uint16_t i=0; i<harmonics_detected; i++)
     {
         ESP_LOGI(TAG, "F%d: %fHz", i, (float)h_pos[i]*SAMPLE_FREQ/N_POW2);
-    }
+    }*/
 }
